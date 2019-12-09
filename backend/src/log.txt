@@ -149,3 +149,138 @@ WHERE "user".email = %(email_1)s
 2019-12-04 17:51:06,790 INFO     [on.py:shutdown:39] Waiting for application shutdown.
 2019-12-04 17:51:06,790 INFO     [on.py:shutdown:42] Application shutdown complete.
 2019-12-04 17:51:06,790 INFO     [main.py:serve:369] Finished server process [75083]
+2019-12-09 17:30:14,808 INFO     [main.py:serve:356] Started server process [6727]
+2019-12-09 17:30:14,813 INFO     [main.py:startup:435] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2019-12-09 17:30:14,813 INFO     [on.py:startup:22] Waiting for application startup.
+2019-12-09 17:30:14,814 INFO     [on.py:startup:34] Application startup complete.
+2019-12-09 17:31:03,056 ERROR    [httptools_impl.py:run_asgi:388] Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py", line 385, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/applications.py", line 133, in __call__
+    await self.error_middleware(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 177, in __call__
+    raise exc from None
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 155, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/base.py", line 25, in __call__
+    response = await self.dispatch_func(request, self.call_next)
+  File "/Users/lenhutquang/_working/inventory/backend/src/main.py", line 40, in db_session_middleware
+    response = await call_next(request)
+AttributeError: 'NoneType' object has no attribute 'db'
+2019-12-09 17:32:43,603 INFO     [main.py:serve:356] Started server process [6745]
+2019-12-09 17:32:43,605 INFO     [main.py:startup:435] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2019-12-09 17:32:43,605 INFO     [on.py:startup:22] Waiting for application startup.
+2019-12-09 17:32:43,605 INFO     [on.py:startup:34] Application startup complete.
+2019-12-09 17:35:39,191 INFO     [main.py:serve:356] Started server process [6770]
+2019-12-09 17:35:39,193 INFO     [main.py:startup:435] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2019-12-09 17:35:39,193 INFO     [on.py:startup:22] Waiting for application startup.
+2019-12-09 17:35:39,194 INFO     [on.py:startup:34] Application startup complete.
+2019-12-09 17:35:41,685 ERROR    [httptools_impl.py:run_asgi:388] Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py", line 385, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/applications.py", line 133, in __call__
+    await self.error_middleware(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 177, in __call__
+    raise exc from None
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 155, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/base.py", line 25, in __call__
+    response = await self.dispatch_func(request, self.call_next)
+  File "/Users/lenhutquang/_working/inventory/backend/src/main.py", line 37, in db_session_middleware
+    request.headers['content-type'] = 'application/json'
+TypeError: 'Headers' object does not support item assignment
+2019-12-09 17:37:16,760 INFO     [main.py:shutdown:477] Shutting down
+2019-12-09 17:37:16,866 INFO     [on.py:shutdown:39] Waiting for application shutdown.
+2019-12-09 17:37:16,866 INFO     [on.py:shutdown:42] Application shutdown complete.
+2019-12-09 17:37:16,867 INFO     [main.py:serve:369] Finished server process [6770]
+2019-12-09 17:37:18,437 INFO     [main.py:serve:356] Started server process [6783]
+2019-12-09 17:37:18,439 INFO     [main.py:startup:435] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2019-12-09 17:37:18,439 INFO     [on.py:startup:22] Waiting for application startup.
+2019-12-09 17:37:18,440 INFO     [on.py:startup:34] Application startup complete.
+2019-12-09 17:37:30,447 ERROR    [httptools_impl.py:run_asgi:388] Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py", line 385, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/applications.py", line 133, in __call__
+    await self.error_middleware(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 177, in __call__
+    raise exc from None
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 155, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/base.py", line 25, in __call__
+    response = await self.dispatch_func(request, self.call_next)
+  File "/Users/lenhutquang/_working/inventory/backend/src/main.py", line 36, in db_session_middleware
+    if config.DEBUG and not request.headers["Authorization"]:
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/datastructures.py", line 531, in __getitem__
+    raise KeyError(key)
+KeyError: 'Authorization'
+2019-12-09 17:38:02,145 INFO     [main.py:shutdown:477] Shutting down
+2019-12-09 17:38:02,247 INFO     [on.py:shutdown:39] Waiting for application shutdown.
+2019-12-09 17:38:02,248 INFO     [on.py:shutdown:42] Application shutdown complete.
+2019-12-09 17:38:02,248 INFO     [main.py:serve:369] Finished server process [6783]
+2019-12-09 17:38:03,929 INFO     [main.py:serve:356] Started server process [6796]
+2019-12-09 17:38:03,932 INFO     [main.py:startup:435] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2019-12-09 17:38:03,932 INFO     [on.py:startup:22] Waiting for application startup.
+2019-12-09 17:38:03,932 INFO     [on.py:startup:34] Application startup complete.
+2019-12-09 17:38:06,021 ERROR    [httptools_impl.py:run_asgi:388] Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py", line 385, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/applications.py", line 133, in __call__
+    await self.error_middleware(scope, receive, send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 177, in __call__
+    raise exc from None
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/errors.py", line 155, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/lenhutquang/_development/python3/envdev/lib/python3.7/site-packages/starlette/middleware/base.py", line 25, in __call__
+    response = await self.dispatch_func(request, self.call_next)
+  File "/Users/lenhutquang/_working/inventory/backend/src/main.py", line 37, in db_session_middleware
+    request.headers["Authorization"] = 'dsfsfd';
+TypeError: 'Headers' object does not support item assignment
+2019-12-09 17:50:24,703 INFO     [main.py:shutdown:477] Shutting down
+2019-12-09 17:50:24,807 INFO     [on.py:shutdown:39] Waiting for application shutdown.
+2019-12-09 17:50:24,807 INFO     [on.py:shutdown:42] Application shutdown complete.
+2019-12-09 17:50:24,808 INFO     [main.py:serve:369] Finished server process [6796]
+2019-12-09 17:53:19,852 INFO     [main.py:serve:356] Started server process [6966]
+2019-12-09 17:53:19,856 INFO     [main.py:startup:435] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2019-12-09 17:53:19,856 INFO     [on.py:startup:22] Waiting for application startup.
+2019-12-09 17:53:19,857 INFO     [on.py:startup:34] Application startup complete.
+2019-12-09 17:57:53,735 INFO     [main.py:shutdown:477] Shutting down
+2019-12-09 17:57:53,838 INFO     [on.py:shutdown:39] Waiting for application shutdown.
+2019-12-09 17:57:53,839 INFO     [on.py:shutdown:42] Application shutdown complete.
+2019-12-09 17:57:53,840 INFO     [main.py:serve:369] Finished server process [6966]
+2019-12-09 17:57:55,357 INFO     [main.py:serve:356] Started server process [6988]
+2019-12-09 17:57:55,359 INFO     [main.py:startup:435] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2019-12-09 17:57:55,359 INFO     [on.py:startup:22] Waiting for application startup.
+2019-12-09 17:57:55,360 INFO     [on.py:startup:34] Application startup complete.
+2019-12-09 17:58:06,086 INFO     [log.py:info:110] select version()
+2019-12-09 17:58:06,087 INFO     [log.py:info:110] {}
+2019-12-09 17:58:06,092 INFO     [log.py:info:110] select current_schema()
+2019-12-09 17:58:06,092 INFO     [log.py:info:110] {}
+2019-12-09 17:58:06,095 INFO     [log.py:info:110] SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2019-12-09 17:58:06,096 INFO     [log.py:info:110] {}
+2019-12-09 17:58:06,097 INFO     [log.py:info:110] SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2019-12-09 17:58:06,097 INFO     [log.py:info:110] {}
+2019-12-09 17:58:06,098 INFO     [log.py:info:110] show standard_conforming_strings
+2019-12-09 17:58:06,098 INFO     [log.py:info:110] {}
+2019-12-09 17:58:06,104 INFO     [log.py:info:110] BEGIN (implicit)
+2019-12-09 17:58:06,106 INFO     [log.py:info:110] SELECT "user".id AS user_id, "user".name AS user_name, "user".email AS user_email, "user".hashed_password AS user_hashed_password, "user".is_active AS user_is_active, "user".is_superuser AS user_is_superuser 
+FROM "user" 
+WHERE "user".email = %(email_1)s 
+ LIMIT %(param_1)s
+2019-12-09 17:58:06,106 INFO     [log.py:info:110] {'email_1': 'admin@gmail.com', 'param_1': 1}
+2019-12-09 17:58:06,449 INFO     [log.py:info:110] ROLLBACK
+2019-12-09 17:59:41,457 INFO     [main.py:shutdown:477] Shutting down
+2019-12-09 17:59:41,558 INFO     [on.py:shutdown:39] Waiting for application shutdown.
+2019-12-09 17:59:41,558 INFO     [on.py:shutdown:42] Application shutdown complete.
+2019-12-09 17:59:41,559 INFO     [main.py:serve:369] Finished server process [6988]

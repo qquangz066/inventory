@@ -12,7 +12,7 @@ from dto.token import TokenPayload
 from model.user import User
 from service import user as user_service
 
-reusable_oauth2 = OAuth2PasswordBearer(tokenUrl="/login/access-token")
+reusable_oauth2 = OAuth2PasswordBearer(tokenUrl="/dev/login/access-token")
 
 
 def get_current_user(

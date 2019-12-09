@@ -1,4 +1,3 @@
-import logging_tree as logging_tree
 import uvicorn as uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
@@ -10,7 +9,12 @@ from core.logging import setup_logging
 from db.session import Session
 
 setup_logging()
-app = FastAPI(title=config.PROJECT_NAME)
+app = FastAPI(
+    title=config.PROJECT_NAME,
+    openapi_url='/openapi.json' if config.DEBUG else None,
+    docs_url='/docs' if config.DEBUG else None,
+    redoc_url='/redoc' if config.DEBUG else None
+)
 
 # CORS
 origins = []
@@ -41,6 +45,4 @@ async def db_session_middleware(request: Request, call_next):
 
 
 if __name__ == "__main__":
-    logging_tree.printout()
-
     uvicorn.run(app, host="0.0.0.0", port=8000)
