@@ -1,5 +1,5 @@
-import axios from "axios";
 import { host } from "../constants";
+import httpInternal from "../httpInternal";
 let localStorage = global.window.localStorage;
 
 const auth = {
@@ -11,7 +11,7 @@ const auth = {
   login(username, password) {
     if (auth.loggedIn()) return auth.getAuth();
 
-    return axios
+    return httpInternal
       .post(`${host}/login/access-token`, {
         username,
         password

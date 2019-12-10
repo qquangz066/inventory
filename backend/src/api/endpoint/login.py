@@ -1,8 +1,9 @@
 import logging
 from datetime import timedelta
 
-from fastapi import APIRouter, Depends, HTTPException, Form
+from fastapi import APIRouter, Depends, Form
 from sqlalchemy.orm import Session
+from starlette.responses import JSONResponse
 
 from api.dependency.db import get_db
 from core import config
@@ -26,9 +27,9 @@ def login_access_token(
         db, email=data.username, password=data.password
     )
     if not user:
-        raise HTTPException(status_code=401, detail="Incorrect email or password")
+        return JSONResponse(status_code=400, content={"message": "Incorrect username or password"})
     elif not user_service.is_active(user):
-        raise HTTPException(status_code=401, detail="Inactive user")
+        return JSONResponse(status_code=400, content={"message": "Inactive user"})
     access_token_expires = timedelta(minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES)
     return {
         "access_token": create_access_token(
@@ -50,9 +51,9 @@ if config.DEBUG:
             db, email=username, password=password
         )
         if not user:
-            raise HTTPException(status_code=401, detail="Incorrect email or password")
+            return JSONResponse(status_code=400, content={"message": "Incorrect username or password"})
         elif not user_service.is_active(user):
-            raise HTTPException(status_code=401, detail="Inactive user")
+            return JSONResponse(status_code=400, content={"message": "Inactive user"})
         access_token_expires = timedelta(minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES)
         return {
             "access_token": create_access_token(

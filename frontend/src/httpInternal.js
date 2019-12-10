@@ -2,8 +2,10 @@ import axios from "axios";
 import auth from "./services/auth";
 import store from "./store";
 import { logout } from "./actions";
+import { toast } from "react-toastify";
 
 import { host } from "./constants";
+import { getNestedObject } from "./utils/object";
 // Set config defaults when creating the instance
 const httpInternal = axios.create({
   baseURL: host
@@ -14,7 +16,9 @@ httpInternal.interceptors.request.use(
   function(config) {
     // Do something before request is sent
     const token = auth.getAuth() && auth.getAuth().access_token;
-    config.headers = { Authorization: `Bearer ${token}` };
+    if (token) {
+      config.headers = { Authorization: `Bearer ${token}` };
+    }
     return config;
   },
   function(error) {
@@ -30,12 +34,19 @@ httpInternal.interceptors.response.use(
     return response;
   },
   function(error) {
-    if (
-      error.response.status === 401
-    ) {
-      return store.dispatch(logout());
+    if (error.response && error.response.status === 401) {
+      store.dispatch(logout());
+    } else {
+      toast.error(
+        getNestedObject(error, ["response", "data", "message"]) || error.message
+      );
+      // store.dispatch({
+      //   type: commonConstants.SHOW_ERROR,
+      //   message:
+      //     ((error.response || null).data || null).message || error.message
+      // });
     }
-    return Promise.resolve(error);
+    return Promise.reject(error);
   }
 );
 

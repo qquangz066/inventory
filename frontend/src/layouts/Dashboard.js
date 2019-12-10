@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 
 const Dashboard = () => {
-  useEffect(() => {
-    
-  });
+  useEffect(() => {});
 
   return <div>test Dashboard</div>;
 };

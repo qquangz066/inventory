@@ -1,7 +1,8 @@
 import logging
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+from starlette.responses import JSONResponse
 
 from api.dependency.db import get_db
 from api.dependency.security import get_current_active_superuser, get_current_active_user
@@ -39,13 +40,9 @@ def read_user_by_id(
     LOGGER.info('get user')
     user = user_service.get(db, user_id=user_id)
     if not user:
-        raise HTTPException(
-            status_code=400, detail="The user not found"
-        )
+        return JSONResponse(status_code=400, content={"message": "The user not found"})
     if user == current_user:
         return UserItem.from_model(user)
     if not user_service.is_superuser(current_user):
-        raise HTTPException(
-            status_code=400, detail="The user doesn't have enough privileges"
-        )
+        return JSONResponse(status_code=400, content={"message": "The user doesn't have enough privileges"})
     return UserItem.from_model(user)

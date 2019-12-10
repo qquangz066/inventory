@@ -37,10 +37,10 @@ export function* loginFlow() {
         }
       }
     } catch (error) {
-      yield put({
-        type: loginConstants.LOGIN_FAILED,
-        message: error.response ? error.response.data.detail : error.message
-      });
+      // yield put({
+      //   type: loginConstants.LOGIN_FAILED,
+      //   message: error.response ? error.response.data.detail : error.message
+      // });
       
     }
   }
