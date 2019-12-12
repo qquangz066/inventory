@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import indexRoutes from "../routes";
 import PrivateRoute from "../components/PrivateRoute";
 import { useSelector } from "react-redux";
-import Login from "../layouts/Login";
+import Login from "../layouts/Login/Login";
 
 const App = () => {
   const auth = useSelector(state => state.auth);
@@ -12,16 +12,8 @@ const App = () => {
       {auth.isAuthenticated ? null : <Route path="/login" component={Login} />}
 
       {indexRoutes.map((prop, key) => {
-        if (prop.exact) {
-          return (
-            <PrivateRoute
-              path={prop.path}
-              key={key}
-              exact
-              component={prop.component}
-              isAuthenticated={auth.isAuthenticated}
-            />
-          );
+        if (prop.redirect) {
+          return <Redirect from={prop.path} to={prop.pathTo} key={key} />;
         } else {
           return (
             <PrivateRoute
@@ -33,7 +25,6 @@ const App = () => {
           );
         }
       })}
-      <Redirect from="*" exact to="/" />
     </Switch>
   );
 };

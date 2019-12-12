@@ -1,8 +1,8 @@
 import React from "react";
 import useForm from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../actions";
-import Footer from "./Footer";
+import { login } from "../../actions";
+import Footer from "../Footer";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -16,7 +16,7 @@ const Login = () => {
         <nav className="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
           <div className="container px-4">
             <a className="navbar-brand" href="./index.html">
-              <img src="./assets/img/brand/white.png" alt="logo" />
+              <img src="/assets/img/brand/white.png" alt="logo" />
             </a>
             <button
               className="navbar-toggler"
@@ -34,7 +34,7 @@ const Login = () => {
                 <div className="row">
                   <div className="col-6 collapse-brand">
                     <a href="./index.html">
-                      <img src="./assets/img/brand/blue.png" alt="logo_blue" />
+                      <img src="/assets/img/brand/blue.png" alt="logo_blue" />
                     </a>
                   </div>
                   <div className="col-6 collapse-close">
