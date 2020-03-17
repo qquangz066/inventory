@@ -36,15 +36,22 @@ httpInternal.interceptors.response.use(
   function(error) {
     if (error.response && error.response.status === 401) {
       store.dispatch(logout());
+    } else if (
+      getNestedObject(error, ["response", "status"]) === 422 &&
+      getNestedObject(error, ["response", "data", "detail"])
+    ) {
+      let detail = getNestedObject(error, ["response", "data", "detail"]);
+      detail.forEach(element => {
+        if (element.loc[0] === "body") {
+          toast.error(element.loc[2].replace("_", " ") + " -> " + element.msg);
+        } else if (element.loc[0] === "path") {
+          toast.error(element.loc[1].replace("_", " ") + " -> " + element.msg);
+        }
+      });
     } else {
       toast.error(
         getNestedObject(error, ["response", "data", "message"]) || error.message
       );
-      // store.dispatch({
-      //   type: commonConstants.SHOW_ERROR,
-      //   message:
-      //     ((error.response || null).data || null).message || error.message
-      // });
     }
     return Promise.reject(error);
   }

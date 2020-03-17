@@ -1,5 +1,5 @@
 import { put, take, race, call, takeEvery } from "redux-saga/effects";
-import { loginConstants } from "../constants";
+import { loginConstants } from "../constants/loginConstants";
 import auth from "../services/auth";
 import history from "../history";
 
@@ -29,20 +29,14 @@ export function* loginFlow() {
           localStorage.auth = JSON.stringify(data);
           yield put({
             type: loginConstants.LOGIN_SUCCESS,
-            ...data
+            user: data
           });
-          
+
           yield call(history.push, "/");
         } else {
         }
       }
-    } catch (error) {
-      // yield put({
-      //   type: loginConstants.LOGIN_FAILED,
-      //   message: error.response ? error.response.data.detail : error.message
-      // });
-      
-    }
+    } catch (error) {}
   }
 }
 

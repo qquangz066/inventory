@@ -1,4 +1,4 @@
-import { loginConstants } from "../constants";
+import { loginConstants } from "../constants/loginConstants";
 
 export const login = user => {
   return {

@@ -1,39 +1,21 @@
-
 import { host } from "../constants";
 import httpInternal from "../httpInternal";
 
 const userService = {
-  async find() {
-    return httpInternal
-      .get(`${host}/users`)
-      .then(res => res.data)
-      .catch(err => {
-        throw err;
-      });
+  async list(params) {
+    return await httpInternal
+      .get(`${host}/users/`, { params })
+      .then(res => res.data);
   },
-  async get(id) {
-    return httpInternal
-      .get(`${host}/users${id}`)
-      .then(res => res.data)
-      .catch(err => {
-        throw err;
-      });
+  async activate(id) {
+    return await httpInternal
+      .post(`${host}/users/${id}/activate`)
+      .then(res => res.data);
   },
-  async create(user) {
-    return httpInternal
-      .post(`${host}/users`, user)
-      .then(res => res.data)
-      .catch(err => {
-        throw err;
-      });
-  },
-  async delete(id) {
-    return httpInternal
-      .delete(`${host}/users/${id}`)
-      .then(res => res.data)
-      .catch(err => {
-        throw err;
-      });
+  async deactivate(id) {
+    return await httpInternal
+      .post(`${host}/users/${id}/deactivate`)
+      .then(res => res.data);
   }
 };
 

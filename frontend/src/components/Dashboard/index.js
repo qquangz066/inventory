@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Footer from "../../layouts/Footer";
 
 const Dashboard = () => {
-  useEffect(() => {});
   return (
     <>
       <div className="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -116,7 +115,6 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="container-fluid mt--7">
-        
         <div className="row mt-5">
           <div className="col-xl-8 mb-5 mb-xl-0">
             <div className="card shadow">

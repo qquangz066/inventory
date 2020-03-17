@@ -1,21 +1,15 @@
-import { userConstants } from "../constants";
+import { userConstants } from "../constants/userConstants";
 
-export const addUser = user => {
-  return {
-    type: userConstants.ADD_USER,
-    user
-  };
+const userActions = {
+  list: params => ({ type: userConstants.LIST_USER_REQUEST, params }),
+  activate: id => ({
+    type: userConstants.ACTIVATE_USER_REQUEST,
+    id
+  }),
+  deactivate: id => ({
+    type: userConstants.DEACTIVATE_USER_REQUEST,
+    id
+  })
 };
 
-export const findUser = () => {
-  return {
-    type: userConstants.FETCH_REQUEST
-  };
-};
-
-export const deleteUser = userId => {
-  return {
-    type: userConstants.DELETE_USER,
-    userId
-  };
-};
+export default userActions;

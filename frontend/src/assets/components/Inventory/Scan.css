@@ -1,0 +1,27 @@
+
+.scanner-container {
+  position: relative;
+}
+
+.scanner-container,
+#interactive.viewport {
+  width: 100%;
+  height: auto;
+}
+
+#interactive.viewport canvas,
+video {
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+}
+
+#interactive.viewport canvas.drawingBuffer,
+video.drawingBuffer {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

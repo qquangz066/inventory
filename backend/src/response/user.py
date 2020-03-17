@@ -9,8 +9,8 @@ class UserItem(BaseModel):
     id: int
     name: str
     email: str
-    isActive: bool
-    isSuperuser: bool
+    is_active: bool
+    is_superuser: bool
 
     @staticmethod
     def from_model(user: User):
@@ -18,8 +18,8 @@ class UserItem(BaseModel):
             id=user.id,
             name=user.name,
             email=user.email,
-            isActive=user.is_active,
-            isSuperuser=user.is_superuser
+            is_active=user.is_active,
+            is_superuser=user.is_superuser
         )
 
 

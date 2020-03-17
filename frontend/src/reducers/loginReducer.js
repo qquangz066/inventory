@@ -1,31 +1,29 @@
-import { loginConstants } from "../constants";
+import { loginConstants } from "../constants/loginConstants";
 import auth from "../services/auth";
 
+let user = auth.getAuth() || [];
+delete user.access_token;
 const initialState = {
   isAuthenticated: auth.loggedIn(),
-  username: auth.getAuth() && auth.getAuth().username,
+  ...user
 };
 
 const clearState = {
-  isAuthenticated: false,
-  username: "",
+  isAuthenticated: false
 };
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case loginConstants.LOGIN_SUCCESS: {
+      delete action.user.access_token;
       return {
-        username: action.username,
+        ...action.user,
         isAuthenticated: true
       };
     }
 
     case loginConstants.LOGOUT_REQUEST: {
       return clearState;
-    }
-
-    case loginConstants.LOGIN_FAILED: {
-      return {...clearState,message: action.message};
     }
 
     default:
